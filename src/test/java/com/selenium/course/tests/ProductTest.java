@@ -6,6 +6,7 @@ import com.selenium.course.pages.ProductListerPage;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class ProductTest extends TestUtil {
 
@@ -17,8 +18,15 @@ public class ProductTest extends TestUtil {
         productListerPage.addToCart("Sauce Labs Backpack");
 
         //Hard Assert
-        Assert.assertEquals(productListerPage.getProductPrice("Sauce Labs Backpack"), "$19.99");
+       // Assert.assertEquals(productListerPage.getProductPrice("Sauce Labs Backpack"), "$19.99");
 
+        //Soft Assert
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(productListerPage.getProductPrice("Sauce Labs Backpack"), "$19.99");
+        softAssert.assertEquals(productListerPage.getProductPrice("Sauce Labs Backpack"), "$29.99");
+        softAssert.assertEquals(productListerPage.getProductPrice("Sauce Labs Backpack"), "$28.99");
+
+        softAssert.assertAll();
     }
 
 
