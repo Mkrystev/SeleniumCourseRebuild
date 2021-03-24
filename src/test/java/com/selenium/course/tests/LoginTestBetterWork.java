@@ -4,7 +4,6 @@ import com.opencsv.exceptions.CsvException;
 import com.selenium.course.base.TestUtil;
 import com.selenium.course.utils.CsvReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,12 +20,10 @@ public class LoginTestBetterWork extends TestUtil {
         WebElement userNameInput = driver.findElement(By.id("user-name"));
         userNameInput.clear();
         userNameInput.sendKeys(userName);
-        Thread.sleep(1000);
 
         WebElement passwordInput = driver.findElement(By.name("password"));
         passwordInput.clear();
         passwordInput.sendKeys(password);
-        Thread.sleep(1000);
 
         WebElement loginBtn = driver.findElement(By.cssSelector("[value=LOGIN]"));
         loginBtn.click();
